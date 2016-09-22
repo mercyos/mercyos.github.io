@@ -4,21 +4,11 @@
   
     
     <entry>
-      <title><![CDATA[test3]]></title>
-      <url>http://yoursite.com/2016/09/22/test3/</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[test2]]></title>
-      <url>http://yoursite.com/2016/09/22/test2/</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[test1]]></title>
+      <title><![CDATA[hello hexo]]></title>
       <url>http://yoursite.com/2016/09/22/test1/</url>
-      <content type="html"></content>
+      <content type="html"><![CDATA[<p>This is a test for categories and tags!!</p>
+<p>end!!!</p>
+]]></content>
     </entry>
     
     <entry>
