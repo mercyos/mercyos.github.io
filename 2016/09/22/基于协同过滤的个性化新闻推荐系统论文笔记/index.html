@@ -1,0 +1,834 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="title: Hello，World!你好，世界！date: 2014-01-21 23:33:02tags: 写作categories: 随笔 # 配置categories
+基于协同过滤的个性化新闻推荐系统论文笔记标签（空格分隔）： 论文笔记
+协同过滤技术　　　传统协同过滤流程：
+1用户评分数据-&amp;gt;相似度计算-&amp;gt;个性化推荐
+
+相似度计算　　　　收集用户的评分数据，如果推荐系统前端为配">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小美与小北的思考时间">
+<meta property="og:url" content="http://yoursite.com/2016/09/22/基于协同过滤的个性化新闻推荐系统论文笔记/index.html">
+<meta property="og:site_name" content="小美与小北的思考时间">
+<meta property="og:description" content="title: Hello，World!你好，世界！date: 2014-01-21 23:33:02tags: 写作categories: 随笔 # 配置categories
+基于协同过滤的个性化新闻推荐系统论文笔记标签（空格分隔）： 论文笔记
+协同过滤技术　　　传统协同过滤流程：
+1用户评分数据-&amp;gt;相似度计算-&amp;gt;个性化推荐
+
+相似度计算　　　　收集用户的评分数据，如果推荐系统前端为配">
+<meta property="og:updated_time" content="2016-09-22T11:36:19.027Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="小美与小北的思考时间">
+<meta name="twitter:description" content="title: Hello，World!你好，世界！date: 2014-01-21 23:33:02tags: 写作categories: 随笔 # 配置categories
+基于协同过滤的个性化新闻推荐系统论文笔记标签（空格分隔）： 论文笔记
+协同过滤技术　　　传统协同过滤流程：
+1用户评分数据-&amp;gt;相似度计算-&amp;gt;个性化推荐
+
+相似度计算　　　　收集用户的评分数据，如果推荐系统前端为配">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title>  | 小美与小北的思考时间 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?f4e49592ebb6e2da8d3bd31ce6d87e95";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">小美与小北的思考时间</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">编程，思维导图，知识管理，真知灼见</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-22T19:36:18+08:00" content="2016-09-22">
+              2016-09-22
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/22/基于协同过滤的个性化新闻推荐系统论文笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/22/基于协同过滤的个性化新闻推荐系统论文笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>title: Hello，World!你好，世界！<br>date: 2014-01-21 23:33:02<br>tags: 写作<br>categories: 随笔 # 配置categories</p>
+<h1 id="基于协同过滤的个性化新闻推荐系统论文笔记"><a href="#基于协同过滤的个性化新闻推荐系统论文笔记" class="headerlink" title="基于协同过滤的个性化新闻推荐系统论文笔记"></a>基于协同过滤的个性化新闻推荐系统论文笔记</h1><p>标签（空格分隔）： 论文笔记</p>
+<h2 id="协同过滤技术"><a href="#协同过滤技术" class="headerlink" title="协同过滤技术"></a><strong>协同过滤技术</strong></h2><p>　<br>　　传统协同过滤流程：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">用户评分数据-&gt;相似度计算-&gt;个性化推荐</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>相似度计算</strong><br>　　<br>　　收集用户的评分数据，如果推荐系统前端为配置打分系统（<code>相当一部分重点就是在这些未打分的地方</code>），仅能得到一些日志信息时，比如用户的浏览、评论、发布等，可对不同的行为类型赋予不同的权重，得到用户对物品的最终评分。<br>　　相似度计算为协同过滤最重要的部分，传统的有余弦相似度、修正余弦相似度和皮尔逊相似度。<br>　　<code>问题在于未评分的项目默认为0</code>，导致不可信，因为用户未评分项目不可能为0。随着数据稀疏性越来越严重，共同评分减少，相似度无法计算。<br>　　计算完相似度后，抽取前K个用户作为用户邻居，或者钱K个物品作为物品的邻居。
+　　</li>
+<li><strong>评分预测和Top-N推荐</strong><br>　　<br>　　因为用户不可能为所有项目打分，评分预测就是为解决对未打分物品的评分。有三种评分预测方法：<br>　　1、直接平均法。基于用户的采用相似用户对物品评分的均值作为该用户的未评分物品的预测。基于物品的采用用户对相似物品评分的均值作为该用户对未评分物品的预测评分。<br>　　2、加权平均法。<br>　　3、用户评分偏移加权平均法。<br>　　<br>　　Top-N推荐（<code>此法可用</code>)。根据用户的邻居对物品的兴趣和用户对该物品的兴趣，选择其中用户未关注的最高N个物品作为推荐。
+　　 </li>
+<li><strong>ItemCF和UserCF的选择</strong><br>　　<br>　　第一，UserCF反应的是更加大众化的东西，而ItemCF反应的是用户自己的兴趣，更加的个性化。第二，ItemCF比较适合物品相对固定的领域，UserCF比较适合用户相对固定的领域。
+　　</li>
+<li><strong>基于内容的推荐技术</strong><br>　　<br>　　分析用户之前关注物品的内容信息和特征信息，找出内容上相似的物品，作出个性化推荐结果。
+　　</li>
+<li><strong>混合推荐技术</strong><br>　　<br>　　将几种不同算法融合的技术。
+　　<h2 id="协同过滤的瓶颈问题"><a href="#协同过滤的瓶颈问题" class="headerlink" title="协同过滤的瓶颈问题"></a><strong>协同过滤的瓶颈问题</strong></h2></li>
+</ul>
+<ul>
+<li><strong>数据稀疏性和冷启动</strong><br>　　<br>　　两个用户之间选择的物品重叠的可能性越来越少，带来数据稀疏性的问题。<br>　　用户冷启动和项目冷启动问题。实际上，冷启动问题是数据稀疏性的极端情况。<br>　　<code>冷启动问题使用热门推荐，使用内容信息和社会化信息。</code><br>　　预测填充。<br>　　改进的传统相似度算法：起因是如果用户评分数据上公共评分很少，很难找到相似用户。梁胜勇提出的一种解决冷启动的相似度度量方法PIP。<br>　　提取新闻文本内容，利用浅层语义模型（LDA）挖掘出新闻主题，根据用户浏览的新闻获得用户所偏爱的主题，在推荐时考虑<code>新闻内容特征（主题相似性）</code>和行为特征（协同过滤），把基于内容推荐融合到协同过滤中来，解决项目的冷启动问题，最终取得较好的推荐结果。
+　　</li>
+<li><p><strong>可扩展性问题</strong><br>　　<br>　　基于用户的协同过滤方法会随着用户和物品的增多而导致计算量猛增。未解决这个问题，可有两种方法：一、借助MapReduce模型，将传统过滤推荐算法并行化，减少时间消耗。也可以先将用户或者物品进行聚类，减少用户或物品最近邻搜索空间从而提高协同过滤可扩展性。
+　　</p>
+<h2 id="云计算平台Hadoop"><a href="#云计算平台Hadoop" class="headerlink" title="云计算平台Hadoop"></a>云计算平台Hadoop</h2><p>　　简略<br>　　<br>##一种基于多维相似度的个性化新闻推荐方法</p>
+</li>
+<li><p><strong>个性化新闻推荐系统面临的问题</strong></p>
+</li>
+</ul>
+<p>　　显示行为数据和隐式行为数据。个性化新闻通常采用隐式行为数据。<br>　　<code>隐式行为数据转换为显示行为数据，对不同的行为类型赋予不同的权重，然后采用皮尔逊相似度、余弦相似度等来计算相似度。</code>但是这种方法并不准确。<br>　　随后提出的一些针对隐式行为数据的行为相似度的计算方法，比如Jaccard相似度来度量用户的相似度，这个方法不错，这篇论文就是用的这个方法。<br>　　新闻稀疏性问题，可以将新闻分成几个类别，用户浏览了相同类别一定程度上也说明了他们之间存在相似性，所以可以从新闻类别的角度出发，来发现用户的相似性。此时可采用潜在狄利克雷分布LDA来对新闻的文本信息计算出某一新闻属于不同类别的概率。</p>
+<ul>
+<li><strong>本文提出的多维相似度个性化新闻推荐方法</strong></li>
+</ul>
+<p>　　本文提出的基于个性化新闻推荐方法由两部分组成：<code>行为-内容相似度计算方法、Top-N推荐方法。</code></p>
+<p><code>聚类（LDA分析新闻的类别）-&gt;隐式行为数据相似度计算方法（Jaccard)-&gt;Top-N推荐方法</code></p>
+<p>##行为-内容相似度计算方法</p>
+<p>　　计算流程：<br>　　<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">主题模型训练-&gt;用户建模和新闻建模:用户主题模型向量和新闻主题特征向量</div><div class="line">用户建模和新闻建模-&gt;相似度计算:用户模型和新闻模型</div><div class="line">相似度计算-&gt;输出用户邻居和新闻邻居:</div></pre></td></tr></table></figure></p>
+<p>　　先采用LDA模型训练新闻得到新闻主题特征向量和用户主题特征向量，然后生成用户模型和新闻模型，接着根据本论文的行为-内容相似度计算方法计算出用户间的相似度和新闻间的相似度，取出相似度最前的K个用户作为用户的邻居，取出最相似前K个新闻作为新闻的邻居，输出。</p>
+<ul>
+<li><strong>主题模型训练</strong></li>
+</ul>
+<p>　　使用统一资源定位符URL抓取每篇新闻的标题和正文，分词系统对正文进行分词，形成由新闻ID和新闻名词序列构成的二维表，采用狄利克雷分布LDA和多个主题K对新闻id-新闻名词进行主题训练，得到每篇新闻的主题模型。</p>
+<ul>
+<li><strong>用户建模和新闻建模</strong></li>
+</ul>
+<p>　　用户模型包括行为特征数据和内容特征数据。新闻模型也一样。</p>
+<ul>
+<li><strong>行为-内容相似度计算</strong></li>
+</ul>
+<p>　　行为相似度和内容相似度计算，加权相加，作为最终相似度，找出最近邻的K个邻居，利用TOP-N进行推荐。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/21/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/22/基于协同过滤的个性化新闻推荐系统论文笔记/"
+           data-title="" data-url="http://yoursite.com/2016/09/22/基于协同过滤的个性化新闻推荐系统论文笔记/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="junxian" />
+          <p class="site-author-name" itemprop="name">junxian</p>
+          <p class="site-description motion-element" itemprop="description">兄弟，一起开黑吧</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于协同过滤的个性化新闻推荐系统论文笔记"><span class="nav-number">1.</span> <span class="nav-text">基于协同过滤的个性化新闻推荐系统论文笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#协同过滤技术"><span class="nav-number">1.1.</span> <span class="nav-text">协同过滤技术</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#协同过滤的瓶颈问题"><span class="nav-number">1.2.</span> <span class="nav-text">协同过滤的瓶颈问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#云计算平台Hadoop"><span class="nav-number">1.3.</span> <span class="nav-text">云计算平台Hadoop</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">junxian</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"junxian"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+  
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
