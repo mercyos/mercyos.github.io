@@ -286,6 +286,130 @@
             
               
                 
+                <a class="post-title-link" href="/2016/09/25/基础的一些回顾/" itemprop="url">
+                  基础的一些回顾
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-25T15:27:18+08:00" content="2016-09-25">
+              2016-09-25
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程/" itemprop="url" rel="index">
+                    <span itemprop="name">编程</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/25/基础的一些回顾/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/25/基础的一些回顾/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><p>　　今天突然对java基础有点犯晕，这里再思考巩固一下（看来还是理解不深刻呀，等差不多了好好研究下《深入理解jvm虚拟机》这本书）。<br>　　首先是先看一段代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Learn2</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> MAX_NUM = <span class="number">50</span>;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> num = <span class="number">100</span>;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		<span class="keyword">int</span> n = <span class="number">150</span>;</div><div class="line">		Learn2 lea = <span class="keyword">new</span> Learn2();</div><div class="line"><span class="comment">//		这里输出了MAX_NUM这个变量</span></div><div class="line">		System.out.println(MAX_NUM);</div><div class="line"><span class="comment">//		这里输出了num这个变量</span></div><div class="line"><span class="comment">//		System.out.println(num);</span></div><div class="line">		System.out.println(lea.num);</div><div class="line"><span class="comment">//		输出main函数中的n变量</span></div><div class="line">		System.out.println(n);</div><div class="line"><span class="comment">//		调用静态方法</span></div><div class="line">		<span class="keyword">int</span> d = Sum(<span class="number">3</span>,<span class="number">4</span>);	</div><div class="line">		System.out.println(<span class="string">"调用了静态方法"</span>);</div><div class="line">		Learn2 t = <span class="keyword">new</span> Learn2();</div><div class="line"><span class="comment">//		调用废静态方法</span></div><div class="line">		<span class="keyword">int</span> e = t.Sub(<span class="number">5</span>, <span class="number">3</span>);</div><div class="line">		System.out.println(<span class="string">"调用了非静态方法"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">Sum</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> a + b;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">Sub</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> a - b;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>　　我们一点一点分析：<br>　　首先区分变量，变量有全局变量与局部变量。在java里面全局也可以叫为成员变量。<br>　　局部变量是指在方法体内部的变量，例如在上面的例子里有main方法中的d,e,n三个变量。局部变量的作用范围是在其所属于的大括号内一直有效，出了大括号，也就失效被回收了。在这段范围呢可以直接被打印。<br>　　全局变量也叫成员变量，在这段代码中我们可以看到是类中定义的MAX_NUM和num，其中MAX_NUM是静态变量，num是非静态变量。这两个变量的作用范围也是在其所属于的大括号内，<strong>我们可以看出其所属于的大括号就是整个类，因此他们的作用范围在整个类中都有效，所以他们才被叫做全局变量，因为也可以被作为类的属性的定义，也可以被叫做成员变量。</strong><br>　　下面是之前犯迷糊的地方的解释了，在第12行和13行，第12行是有有错误的，这就牵扯到了非静态变量的深层次意义，非静态变量定义在栈内存中，再类没有实例化创建对象的时候是不存在的，只有类的对象被创建了才存在，因此是不能直接被打印的（例如第12行的出错），而第13行是先创建了一个叫lea的对象，这个对象中是有具体的num这个属性的，是从栈内存创建num变量然后传递到相应的对象中，已经具体存在了，然后打印lea.num这样是可以的。而静态变量则不是，其定义在了方法区，可以理解为已经存在了的，在方法区有其实体，属于整个类，不依托与具体的对象，也就是只要是这个类的对象就共有这一个静态变量，因此即时不创建类，这个静态变量也在方法区存在了，即时创建了100个对象也都是指向这一个静态变量，而不是随着对象不同产生了100个不同的变量。引用的时候只需要加上<strong>类.静态方法</strong>就行了。这个例子中是MAX_NUM这个变量。在第10行对其进行了打印，可以看到因为是静态变量，不需要实例化创建对象就能打印了，而由于是在自己所属的类中，可以省略<strong>类.静态方法</strong>中的类名，直接打上变量名就好了。当然实验显示加上类名也是对的（哎哟喂，好像变量输入只要是在<strong>自己的类</strong>中都不用加类名哇，之前就是这里脑抽犯迷糊了，自己的类嘛，自己还不认识了怎么滴，搞得这么生）。<br>　　所以嘛，有这么个定律<strong>静态方法中不能直接调用非静态的变量与方法，而是需要先创建对象！！</strong><br>　　看完变量，方法其实就很好理解了，方法就是指一段代码片段，方便重复引用的，当然也有静态与非静态，java这个体系都是依托为类，所以方法肯定也都是定义在某个类中（这不是废话吗？！）。就可以和变量一样，想为静态的定义在方法区，在其方法区内有这个方法实体，属于这个类，这个类所创建的对象都是共有这么一个<strong>静态方法</strong>的，即时创建了100个对象也都是指向这一个静态方法，而不是随着对象不同产生了100个不同的方法。代码样例中的16-18行。<br><img src="http://oe1t5gtpu.bkt.clouddn.com/pic1.png" alt="静态对象或方法的内存示意"></p>
+<p>  　　而非静态方法则是只是一段代码片段，不存在一点实体，需要引用时和非静态变量一样，得先创建对象使之拥有相应对象的实体后，在进行<strong>对象.方法</strong>来引用。代码样例中的19-22行。</p>
+<hr>
+<p>　　以上是我这个新手暂时的理解，肯定不全面不具体，但是用起来好像也暂时没什么问题，就先这么理解着吧，以后还要加深巩固具体理解。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/23/线程的停止/" itemprop="url">
                   线程的停止方式
                 </a>
@@ -680,7 +804,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
